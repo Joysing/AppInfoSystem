@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DevUserController {
 	private static Logger logger = Logger.getLogger(DevUserController.class);
 	/**
-	 * 进入开发者登录界面
+	 * 进入开发者登录界面jj
 	 * 
 	 * @return
 	 */
