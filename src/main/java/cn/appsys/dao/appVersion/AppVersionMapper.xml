@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="cn.appsys.dao.appVersion.AppVersionMapper">
+	<!-- 根据APPid获取版本信息 -->
+	<select id="findaAppVersions" parameterType="int" resultType="AppVersion">
+		select * from app_version where appId=#{appId}
+	</select>
+	<!-- 根据APPid获取版本数量 -->
+	<select id="getAppVeersionsCount" parameterType="int"
+		resultType="int">
+		select count(1) from app_version where appId=#{appId}
+	</select>
+	<!-- 根据APPid删除所有版本信息 -->
+	<delete id="delAll">
+		delete from app_version where appId=#{appId}
+	</delete>
+	<!-- 根据版本id删除版本 -->
+	<delete id="del">
+		delete from app_version where id=#{id}
+	</delete>
+	<select id="getAppVersionById" resultType="AppVersion">
+		select * from
+		app_version where id=#{id}
+	</select>
+
+	<insert id="add" parameterType="AppVersion">
+		insert
+		app_version(appId,versionNo,versionInfo,publishStatus,downloadLink,versionSize,createdBy,creationDate,apkLocPath)
+		values(#{appId},#{versionNo},#{versionInfo},#{publishStatus},#{downloadLink},#{versionSize},#{createdBy},#{creationDate},#{apkLocPath})
+	</insert>
+
+	<update id="update" parameterType="AppVersion">
+		update app_version
+		<trim prefix="set" suffix="where id=#{id}" suffixOverrides=",">
+			<if test="versionNo!=null">
+				versionNo=#{versionNo},
+			</if>
+			<if test="versionInfo!=null">
+				versionInfo=#{versionInfo},
+			</if>
+			<if test="publishStatus!=null">
+				publishStatus=#{publishStatus},
+			</if>
+			<if test="downloadLink!=null">
+				downloadLink=#{downloadLink},
+			</if>
+			<if test="versionSize!=null">
+				versionSize=#{versionSize},
+			</if>
+			<if test="apkLocPath!=null">
+				apkLocPath=#{apkLocPath},
+			</if>
+			<if test="modifyBy!=null">
+				modifyBy=#{modifyBy},
+			</if>
+			<if test="modifyDate!=null">
+				modifyDate=#{modifyDate},
+			</if>
+		</trim>
+	</update>
+</mapper>
