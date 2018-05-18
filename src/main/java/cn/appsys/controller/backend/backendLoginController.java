@@ -3,6 +3,8 @@ package cn.appsys.controller.backend;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import cn.appsys.controller.developer.DevUserController;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,7 @@ import cn.appsys.tool.EmptyUtils;
 @Controller
 @RequestMapping(value = "/user")
 public class backendLoginController {
+	private static Logger logger = Logger.getLogger(backendLoginController.class);
 	@Resource
 	private AppInfoService appInfoService;
 	@Resource
@@ -33,30 +36,38 @@ public class backendLoginController {
 
 	@RequestMapping(value = "login")
 	public String login() {
+		BackendUser a = null;
+		System.out.print(""+a.getUserPassword()+a.getUserCode());
 		return "backendLogin";
 	}
 
+	@RequestMapping(value = "/main")
+	public String mainPage(){
+		logger.info("进入主界面");
+		return "backend/main";
+	}
+
 	@RequestMapping(value = "doLogin")
-	public String deLogin(@RequestParam(value = "userCode") String userCode,
-			@RequestParam(value = "userPassword") String userPassword, Model model, HttpSession session) {
+	public String doLogin(@RequestParam(value = "userCode") String userCode,
+			@RequestParam(value = "userPassword",required=false) String userPassword, Model model, HttpSession session) {
 		BackendUser backendUser = backendUserService.findUser(userCode);
 		if (EmptyUtils.isEmpty(backendUser)) {
 			model.addAttribute("error", "用户名不存在!");
 		} else {
 			if (userPassword.equals(backendUser.getUserPassword())) {
 				session.setAttribute(Constants.USER_SESSION, backendUser);
-				return "backend/main";
+				return "redirect:/user/main";
 			} else {
 				model.addAttribute("error", "密码错误!");
 			}
 		}
-		return "backendLogin";
+		return "index";
 	}
 
 	@RequestMapping(value = "doLogout")
 	public String doLogout(HttpSession session) {
 		session.removeAttribute(Constants.USER_SESSION);
-		return "backendLogin";
+		return "index";
 	}
 
 	
