@@ -28,7 +28,7 @@ public class DevUserController {
 
 	@RequestMapping(value = "/main")
 	public String mainPage(){
-		logger.info("进入主界面");
+		logger.info("进入主界面.");
 		return "developer/main";
 	}
 
