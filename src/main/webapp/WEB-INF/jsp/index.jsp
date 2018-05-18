@@ -84,13 +84,13 @@
         <form class="form-horizontal mt20" action="${pageContext.request.contextPath}/user/doLogin" method="post" role="form">
           <div class="form-group">
             <div class="col-lg-12">
-              <input type="text" name="devCode" class="form-control left-icon" value="test001" placeholder="管理员账号">
+              <input type="text" name="userCode" class="form-control left-icon" value="admin" placeholder="管理员账号">
               <i class="ec-user s16 left-input-icon"></i>
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              <input type="password" name="devPassword" class="form-control left-icon" value="123456" placeholder="管理员密码">
+              <input type="password" name="userPassword" class="form-control left-icon" value="123456" placeholder="管理员密码">
               <i class="ec-locked s16 left-input-icon"></i>
             </div>
           </div>
