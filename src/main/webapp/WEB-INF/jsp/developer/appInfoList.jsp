@@ -191,7 +191,7 @@
                                                 <td class="center ">${appInfo.flatformName }</td>
                                                 <td class="center ">${appInfo.categoryLevel1Name }->
                                                 ${appInfo.categoryLevel2Name } -> ${appInfo.categoryLevel3Name }</td>
-                                                <td class="center ">${appInfo.statusName }</td>
+                                                <td class="center "><span id="status${appInfo.id}">${appInfo.statusName }</span></td>
                                                 <td class="center ">${appInfo.downloads }</td>
                                                 <td class="center ">${appInfo.versionNo }</td>
                                                 <td class="center ">
@@ -213,10 +213,10 @@
                                                                 <div class="modal-footer">
                                                                     <c:choose>
                                                                     <c:when test="${appInfo.status==2 || appInfo.status==5 }">
-                                                                    <button type="button" class="soldUp btn btn-default" appinfoid=${appInfo.id }>上架</button>
+                                                                    <button type="button" id="soldUpButton${appInfo.id }" class="soldUp btn btn-default" appinfoid=${appInfo.id } data-dismiss="modal">上架</button>
                                                                     </c:when>
                                                                     <c:when test="${appInfo.status==4 }">
-                                                                    <button type="button" class="soldDown btn btn-default" appinfoid=${appInfo.id }>下架</button>
+                                                                    <button type="button" id="soldDownButton${appInfo.id }" class="soldDown btn btn-default" appinfoid=${appInfo.id } data-dismiss="modal">下架</button>
                                                                     </c:when>
                                                                     </c:choose>
                                                                     <button type="button" class="addAppVersion btn btn-primary" appinfoid=${appInfo.id }>新增版本</button>
