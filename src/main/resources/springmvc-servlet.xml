@@ -83,5 +83,12 @@
 	</bean>
 
 	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/dev/appInfo/**" />
+			<mvc:mapping path="/backend"/>
+			<bean class="cn.appsys.interceptor.SysInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>
