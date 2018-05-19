@@ -37,7 +37,7 @@
                         <div class="panel-body" style="overflow: hidden; display: block;">
                             <form class="form-horizontal group-border hover-stripped" id="search-form"
                                   action="list" method="post">
-                                <input name="pageIndex" id="pageIndex" value="1" type="hidden">
+                                <input name="pageIndex" id="pageIndex" value="" type="hidden">
                                 <div class="form-group">
                                     <%--<label class="col-lg-2 col-md-2 col-sm-12 control-label">软件名称</label>--%>
                                     <div class="col-lg-2 col-md-2">
@@ -196,29 +196,39 @@
                                                 <td class="center ">${appInfo.versionNo }</td>
                                                 <td class="center ">
                                                 <div class="input-group-btn">
-                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                                点击操作 <span class="caret"></span>
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#${appInfo.id}">
+                                                操作
                                                 </button>
-                                                <ul style='min-width: 72px' class="dropdown-menu">
-                                                <c:choose>
-                                                    <c:when test="${appInfo.status==2 || appInfo.status==5 }">
-                                                        <li><a class="soldUp" appinfoid=${appInfo.id }>上架</a></li>
-                                                    </c:when>
-                                                    <c:when test="${appInfo.status==4 }">
-                                                        <li><a class="soldDown" appinfoid=${appInfo.id }>下架</a></li>
-                                                    </c:when>
-                                                </c:choose>
-                                                <li class="divider"></li>
-                                                <li><a class="addAppVersion" appInfoId="${appInfo.id }">新增版本</a></li>
-                                                <li><a class="updateVersion"
-                                                versionId="${appInfo.versionId }"
-                                                appInfoId="${appInfo.id }">修改版本</a></li>
-                                                <li><a class="update" appInfoId="${appInfo.id }"
-                                                status="${appInfo.status }">修改</a></li>
-                                                <li><a class="viewApp" appinfoid=${appInfo.id }>查看</a></li>
-                                                <li><a class="delAppInfo" appinfoid=${appInfo.id }
-                                                softwareName=${appInfo.softwareName }>删除</a></li>
-                                                </ul>
+
+                                                    <!-- 模态框（Modal） -->
+                                                    <div class="modal fade" id="${appInfo.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                    <h4 class="modal-title" id="myModalLabel">${appInfo.softwareName}</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                  </div>
+                                                                <div class="modal-footer">
+                                                                    <c:choose>
+                                                                    <c:when test="${appInfo.status==2 || appInfo.status==5 }">
+                                                                    <button type="button" class="soldUp btn btn-default" appinfoid=${appInfo.id }>上架</button>
+                                                                    </c:when>
+                                                                    <c:when test="${appInfo.status==4 }">
+                                                                    <button type="button" class="soldDown btn btn-default" appinfoid=${appInfo.id }>下架</button>
+                                                                    </c:when>
+                                                                    </c:choose>
+                                                                    <button type="button" class="addAppVersion btn btn-primary" appinfoid=${appInfo.id }>新增版本</button>
+                                                                    <button type="button" class="updateVersion btn btn-primary" appinfoid=${appInfo.id }>修改版本</button>
+                                                                    <button type="button" class="update btn btn-info" appinfoid=${appInfo.id } status="${appInfo.status }">修改</button>
+                                                                    <button type="button" class="viewApp btn btn-info" appinfoid=${appInfo.id }>查看</button>
+                                                                    <button type="delAppInfo" class="viewApp btn btn-danger" appinfoid=${appInfo.id } softwareName=${appInfo.softwareName }>删除</button>
+                                                                </div>
+                                                            </div><!-- /.modal-content -->
+                                                        </div><!-- /.modal-dialog -->
+                                                    </div>
+                                                    <!-- /.modal -->
                                                 </div>
                                                 </td>
                                             </tr>
