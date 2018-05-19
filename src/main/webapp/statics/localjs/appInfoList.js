@@ -128,9 +128,9 @@ $(".soldUp").on("click", function() {
 					alert("上架失败!!");
 				}
 				if (data.result == "true") {
-					$show.html("以上架");
-					var calssName = "btn btn-info btn-xs";
-					$show.addClass(calssName);
+					$show.html("已上架");
+					var className = "btn btn-info btn-xs";
+					$show.addClass(className);
 					$show.hide();
 					$show.slideDown(200);
 				}
@@ -159,9 +159,9 @@ $(".soldDown").on("click", function() {
 					alert("下架失败!!");
 				}
 				if (data.result == "true") {
-					$show.html("以下架");
-					var calssName = "btn btn-success btn-xs";
-					$show.addClass(calssName);
+					$show.html("已下架");
+					var className = "btn btn-success btn-xs";
+					$show.addClass(className);
 					$show.hide();
 					$show.slideDown(200);
 				}
