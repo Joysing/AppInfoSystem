@@ -11,8 +11,8 @@
             <div class="col-lg-12 heading">
                 <h1 class="page-header"><i class="im-paragraph-justify"></i> APP 信息管理维护</h1>
                 <!-- Start .bredcrumb -->
-                <ul id="crumb" class="breadcrumb">
-                    <li><i class="im-home"></i><a href="${pageContext.request.contextPath}">后台首頁</a><i
+                <ul class="breadcrumb">
+                    <li><i class="im-home"></i><a href="${pageContext.request.contextPath}">后台首页</a><i
                             class="en-arrow-right7"></i></li>
                     <li><i class="im-paragraph-justify"></i>APP 信息管理</li>
                 </ul>
@@ -35,8 +35,9 @@
                                     class="im-minus"></i></a></div>
                         </div>
                         <div class="panel-body" style="overflow: hidden; display: block;">
-                            <form class="form-horizontal group-border hover-stripped" role="form"
+                            <form class="form-horizontal group-border hover-stripped" id="search-form"
                                   action="list" method="post">
+                                <input name="pageIndex" id="pageIndex" value="1" type="hidden">
                                 <div class="form-group">
                                     <%--<label class="col-lg-2 col-md-2 col-sm-12 control-label">软件名称</label>--%>
                                     <div class="col-lg-2 col-md-2">
@@ -131,7 +132,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!-- col-lg-12 start here -->
-                    <div class="panel panel-default plain toggle panelClose panelRefresh" id="spr_0">
+                    <div class="panel panel-default plain toggle panelClose panelRefresh" id="spr_1">
                         <!-- Start .panel -->
                         <div class="panel-heading white-bg">
                             <h4 class="panel-title">软件列表</h4>
@@ -256,7 +257,8 @@
                                                 </div>
                                                 <script type="text/javascript">
                                                     function page_nav(form, num) {
-                                                        form.pageIndex.value = num;
+                                                        form=document.getElementById("search-form");
+                                                        document.getElementById("pageIndex").value=num;
                                                         form.submit();
                                                     }
                                                 </script>

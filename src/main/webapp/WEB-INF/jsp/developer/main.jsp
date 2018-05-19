@@ -10,10 +10,6 @@ pageEncoding="UTF-8"%>
                     <!-- Start .page-header -->
                     <div class="col-lg-12 heading">
                         <h1 class="page-header"><i class="im-screen"></i>欢迎你! ${devUserSession.devCode }（${devUserSession.devName }）</h1>
-                        <!-- Start .bredcrumb -->
-                        <ul id="crumb" class="breadcrumb">
-                        </ul>
-                        <!-- End .breadcrumb -->
                     </div>
                     <!-- End .page-header -->
                 </div>
