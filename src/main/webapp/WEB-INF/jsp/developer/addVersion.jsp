@@ -67,7 +67,7 @@
                                                     <td>预发布</td>
                                                 </c:otherwise>
                                             </c:choose>
-                                            <td><a href="down?apkLocPath='${appVersion.apkLocPath }'&apkFileName='${appVersion.apkFileName }'">${appVersion.apkFileName }</a>
+                                            <td><a href="${pageContext.request.contextPath}/statics/updateFiles/${appVersion.apkFileName }">${appVersion.apkFileName }</a>
                                             </td>
                                             <td><fmt:formatDate value="${appVersion.modifyDate }"  type="both"/></td>
                                         </tr>
