@@ -9,12 +9,12 @@
             <!-- Start .row -->
             <!-- Start .page-header -->
             <div class="col-lg-12 heading">
-                <h1 class="page-header"><i class="im-paragraph-justify"></i> APP 信息管理维护</h1>
+                <h1 class="page-header"><i class="im-paragraph-justify"></i> APP信息管理维护</h1>
                 <!-- Start .bredcrumb -->
                 <ul class="breadcrumb">
                     <li><i class="im-home"></i><a href="${pageContext.request.contextPath}">后台首页</a><i
                             class="en-arrow-right7"></i></li>
-                    <li><i class="im-paragraph-justify"></i>APP 信息管理</li>
+                    <li><i class="im-paragraph-justify"></i>APP信息管理</li>
                 </ul>
                 <!-- End .breadcrumb -->
             </div>
@@ -37,7 +37,7 @@
                         <div class="panel-body" style="overflow: hidden; display: block;">
                             <form class="form-horizontal group-border hover-stripped" id="search-form"
                                   action="list" method="post">
-                                <input name="pageIndex" id="pageIndex" value="" type="hidden">
+                                <input name="pageIndex" id="pageIndex" value="1" type="hidden">
                                 <div class="form-group">
                                     <%--<label class="col-lg-2 col-md-2 col-sm-12 control-label">软件名称</label>--%>
                                     <div class="col-lg-2 col-md-2">
