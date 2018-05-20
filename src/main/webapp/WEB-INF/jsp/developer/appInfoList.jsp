@@ -220,7 +220,7 @@
                                                                     </c:when>
                                                                     </c:choose>
                                                                     <button type="button" class="addAppVersion btn btn-primary" appinfoid=${appInfo.id }>新增版本</button>
-                                                                    <button type="button" class="updateVersion btn btn-primary" appinfoid=${appInfo.id }>修改版本</button>
+                                                                    <button type="button" class="updateVersion btn btn-primary" appinfoid=${appInfo.id } versionId="${appInfo.versionId }">修改版本</button>
                                                                     <button type="button" class="update btn btn-info" appinfoid=${appInfo.id } status="${appInfo.status }">修改</button>
                                                                     <button type="button" class="viewApp btn btn-info" appinfoid=${appInfo.id }>查看</button>
                                                                     <button type="delAppInfo" class="viewApp btn btn-danger" appinfoid=${appInfo.id } softwareName=${appInfo.softwareName }>删除</button>

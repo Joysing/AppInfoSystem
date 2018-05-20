@@ -22,10 +22,12 @@
 		app_version where id=#{id}
 	</select>
 
-	<insert id="add" parameterType="AppVersion">
-		insert
-		app_version(appId,versionNo,versionInfo,publishStatus,downloadLink,versionSize,createdBy,creationDate,apkLocPath)
-		values(#{appId},#{versionNo},#{versionInfo},#{publishStatus},#{downloadLink},#{versionSize},#{createdBy},#{creationDate},#{apkLocPath})
+	<insert id="add" parameterType="AppVersion" useGeneratedKeys="true" keyProperty="id">
+		insert into
+		app_version (appId,versionNo,versionInfo,publishStatus,
+		downloadLink,versionSize,apkLocPath,apkFileName,createdBy,creationDate)
+		values(#{appId},#{versionNo},#{versionInfo},#{publishStatus},#{downloadLink},
+		#{versionSize},#{apkLocPath},#{apkFileName},#{createdBy},#{creationDate})
 	</insert>
 
 	<update id="update" parameterType="AppVersion">
