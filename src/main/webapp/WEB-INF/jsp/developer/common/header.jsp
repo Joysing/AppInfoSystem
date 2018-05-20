@@ -51,7 +51,7 @@
 	<div class="container-fluid">
 		<div class="navbar">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="${pageContext.request.contextPath}">
 					<i class="im-windows8 text-logo-element animated bounceIn"></i><span class="text-logo">开发者平台</span>
 					<span class="text-slogan"></span>
 				</a>
@@ -71,12 +71,6 @@
 						<a href="#" data-toggle="dropdown">
 							<img class="user-avatar" src="${pageContext.request.contextPath}/assets/img/avatars/48.jpg" alt="SuggeElson">${devUserSession.devName }<strong> | 角色：开发者账户</strong></a>
 						<ul class="dropdown-menu right" role="menu">
-							<li><a href="profile.html"><i class="st-user"></i> Profile</a>
-							</li>
-							<li><a href="file.html"><i class="st-cloud"></i> Files</a>
-							</li>
-							<li><a href="#"><i class="st-settings"></i> Settings</a>
-							</li>
 							<li><a href="${pageContext.request.contextPath }/dev/doLogout"><i class="im-exit"></i>注销登录</a>
 							</li>
 						</ul>
@@ -94,25 +88,12 @@
 	<div class="sidebar-inner">
 		<!-- Start #sideNav -->
 		<ul id="sideNav" class="nav nav-pills nav-stacked">
-			<li class="top-search">
-				<form>
-					<input type="text" name="search" placeholder="Search ...">
-					<button type="submit"><i class="ec-search s20"></i>
-					</button>
-				</form>
-			</li>
 			<li><a href="${pageContext.request.contextPath }/dev/main">后台首页 <i class="im-screen"></i></a>
 			</li>
 			<li>
 				<a href="#">应用管理<i class="im-paragraph-justify"></i></a>
 				<ul class="nav sub">
 					<li><a href="${pageContext.request.contextPath }/dev/appInfo/list"><i class="ec-pencil2"></i> APP维护</a>
-					</li>
-					<li><a href="form-validation.html"><i class="im-checkbox-checked"></i> Form Validation</a>
-					</li>
-					<li><a href="form-wizard.html"><i class="im-wand"></i> Form Wizard</a>
-					</li>
-					<li><a href="wysiwyg.html"><i class="fa-pencil"></i> WYSIWYG editor</a>
 					</li>
 				</ul>
 			</li>
