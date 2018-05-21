@@ -152,35 +152,17 @@
                                         <table class="table display dataTable" id="datatable"
                                                aria-describedby="datatable_info">
                                             <thead>
-                                            <tr role="row">
-                                                <th rowspan="1" colspan="1">
-                                                    软件名称
-                                                </th>
-                                                <th rowspan="1" colspan="1">
-                                                    APK名称
-                                                </th>
-                                                <th rowspan="1" colspan="1">
-                                                    软件大小(单位:M)
-                                                </th>
-                                                <th rowspan="1" colspan="1">
-                                                    所属平台
-                                                </th>
-                                                <th rowspan="1" colspan="1">
-                                                    所属分类(一级分类、二级分类、三级分类)
-                                                </th>
-                                                <th rowspan="1" colspan="1">
-                                                    状态
-                                                </th>
-                                                <th rowspan="1" colspan="1">
-                                                    下载次数
-                                                </th>
-                                                <th rowspan="1" colspan="1">
-                                                    最新版本号
-                                                </th>
-                                                <th rowspan="1" colspan="1">
-                                                    操作
-                                                </th>
-                                            </tr>
+                                                <tr>
+                                                    <th>软件名称</th>
+                                                    <th>APK名称</th>
+                                                    <th>软件大小(单位:M)</th>
+                                                    <th>所属平台</th>
+                                                    <th>所属分类(一级分类、二级分类、三级分类)</th>
+                                                    <th>状态</th>
+                                                    <th>下载次数</th>
+                                                    <th>最新版本号</th>
+                                                    <th>操作</th>
+                                                </tr>
                                             </thead>
                                             <tbody role="alert" aria-live="polite" aria-relevant="all">
                                             <c:forEach items="${ appInfos}" var="appInfo">
@@ -235,45 +217,6 @@
                                             </c:forEach>
                                             </tbody>
                                         </table>
-                                        <div class="row-">
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="dataTables_info" id="datatable_info">当前显示第 ${pages.currentPageNo }/${pages.totalPageCount }页，共有${pages.totalCount }
-                                                    条
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="dataTables_paginate paging_bs_full" id="datatable_paginate">
-                                                    <ul class="pagination">
-<c:if test="${pages.currentPageNo > 1}">
-                                                        <li><a tabindex="0"
-                                                               href="javascript:page_nav(document.forms[0],1);"
-                                                               class="paginate_button first"
-                                                               >第一页</a></li>
-                                                        <li><a tabindex="0"
-                                                               href="javascript:page_nav(document.forms[0],${pages.currentPageNo-1});"
-                                                               class="paginate_button previous"
-                                                               >上一页</a>
-                                                        </li>
-</c:if>
-<c:if test="${pages.currentPageNo < pages.totalPageCount }">
-                                                        <li><a tabindex="0" class="paginate_button next"
-                                                               href="javascript:page_nav(document.forms[0],${pages.currentPageNo+1 });"
-                                                               >下一页</a></li>
-                                                        <li><a tabindex="0" class="paginate_button last"
-                                                               href="javascript:page_nav(document.forms[0],${pages.totalPageCount });"
-                                                                >最后一页</a></li>
-</c:if>
-                                                    </ul>
-                                                </div>
-                                                <script type="text/javascript">
-                                                    function page_nav(form, num) {
-                                                        form=document.getElementById("search-form");
-                                                        document.getElementById("pageIndex").value=num;
-                                                        form.submit();
-                                                    }
-                                                </script>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="slimScrollBar ui-draggable"
@@ -293,5 +236,8 @@
 </div>
 <%@include file="common/footer.jsp" %>
 <script src="${pageContext.request.contextPath }/statics/localjs/appInfoList.js"></script>
-
+<script src="${pageContext.request.contextPath }/assets/plugins/tables/datatables/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/tables/datatables/jquery.dataTablesBS3.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/tables/datatables/tabletools/ZeroClipboard.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/tables/datatables/tabletools/TableTools.js"></script>
 <script src="${pageContext.request.contextPath }/assets/js/pages/data-tables.js"></script>

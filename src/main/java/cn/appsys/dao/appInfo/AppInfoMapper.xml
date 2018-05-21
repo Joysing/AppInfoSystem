@@ -96,9 +96,8 @@
 				and a.devId = #{devId}
 			</if>
 		</trim>
-		<if test="from != null and pageSize != null">
-			order by creationDate DESC limit #{from},#{pageSize}
-		</if>
+		<!--改为响应式分页-->
+		order by creationDate DESC
 	</select>
 
 	<select id="getAppInfoCount" resultType="Int">
