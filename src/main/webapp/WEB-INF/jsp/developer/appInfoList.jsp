@@ -223,7 +223,7 @@
                                                                     <button type="button" class="updateVersion btn btn-primary" appinfoid=${appInfo.id } versionId="${appInfo.versionId }">修改版本</button>
                                                                     <button type="button" class="update btn btn-info" appinfoid=${appInfo.id } status="${appInfo.status }">修改</button>
                                                                     <button type="button" class="viewApp btn btn-info" appinfoid=${appInfo.id }>查看</button>
-                                                                    <button type="delAppInfo" class="viewApp btn btn-danger" appinfoid=${appInfo.id } softwareName=${appInfo.softwareName }>删除</button>
+                                                                    <button type="button" class="delAppInfo btn btn-danger" appinfoid=${appInfo.id } softwareName=${appInfo.softwareName }>删除</button>
                                                                 </div>
                                                             </div><!-- /.modal-content -->
                                                         </div><!-- /.modal-dialog -->
@@ -291,6 +291,7 @@
         </div>
     </div>
 </div>
+
 <%@include file="common/footer.jsp" %>
 <script src="${pageContext.request.contextPath }/statics/localjs/appInfoList.js"></script>
 
