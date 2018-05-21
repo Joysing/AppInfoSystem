@@ -96,7 +96,7 @@
 				and a.devId = #{devId}
 			</if>
 		</trim>
-		<!--改为响应式分页-->
+		<!--改为响应式分页 -->
 		order by creationDate DESC
 	</select>
 
