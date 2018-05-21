@@ -85,6 +85,7 @@ public class DevAppInfoController {
 			@RequestParam(value = "queryCategoryLevel3", required = false) String _queryCategoryLevel3,
 			@RequestParam(value = "queryFlatformId", required = false) String _queryFlatformId,
 			@RequestParam(value = "pageIndex", required = false) String pageIndex) {
+
 		// 获取开发者用户id
 		Integer devId = ((DevUser) session.getAttribute(Constants.DEV_USER_SESSION)).getId();
 
@@ -145,6 +146,7 @@ public class DevAppInfoController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		// 向模型添加数据
 		model.addAttribute("appInfos", appInfos);
 		model.addAttribute("statusList", statusList);
@@ -254,6 +256,7 @@ public class DevAppInfoController {
 				return "developer/appInfoAdd";
 			}
 		}
+
 		// 添加APP信息
 		appInfo.setStatus(1);
 		appInfo.setDevId(devId);
@@ -353,7 +356,7 @@ public class DevAppInfoController {
 		List<AppVersion> appVersions = null;
 		try {
 			appInfo = appInfoService.getAppInfo(Integer.parseInt(id), null);
-			appVersions = appVersionService.findaAppVersions(Integer.parseInt(id));
+			appVersions = appVersionService.findAppVersions(Integer.parseInt(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("加载信息失败!!");
@@ -377,7 +380,7 @@ public class DevAppInfoController {
 		try {
 			if (EmptyUtils.isNotEmpty(appInfoId)) {
 				appInfo = appInfoService.getAppInfo(Integer.parseInt(appInfoId), null);
-				appVersions = appVersionService.findaAppVersions(Integer.parseInt(appInfoId));
+				appVersions = appVersionService.findAppVersions(Integer.parseInt(appInfoId));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -520,7 +523,7 @@ public class DevAppInfoController {
 		Map<String, String> data = new HashMap<String, String>();
 		if (EmptyUtils.isNotEmpty(id)) {
 			try {
-				if (appVersionService.getAppVeersionsCount(Integer.parseInt(id)) > 0) {// 如果有版本信息则删除
+				if (appVersionService.getAppVersionsCount(Integer.parseInt(id)) > 0) {// 如果有版本信息则删除
 					appVersionService.delAll(Integer.parseInt(id));
 				}
 				if (appInfoService.deleteAppInfoById(Integer.parseInt(id))) {
@@ -605,7 +608,7 @@ public class DevAppInfoController {
 		if (EmptyUtils.isNotEmpty(appVersionId) && EmptyUtils.isNotEmpty(appInfoId)) {
 			try {
 				newAppVersion = appVersionService.getAppVersionById(Integer.parseInt(appVersionId));
-				appVersions = appVersionService.findaAppVersions(Integer.parseInt(appInfoId));
+				appVersions = appVersionService.findAppVersions(Integer.parseInt(appInfoId));
 				appInfo = appInfoService.getAppInfo(Integer.parseInt(appInfoId), null);
 			} catch (Exception e) {
 				e.printStackTrace();

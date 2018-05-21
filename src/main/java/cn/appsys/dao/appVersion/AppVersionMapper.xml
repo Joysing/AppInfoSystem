@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
 <mapper namespace="cn.appsys.dao.appVersion.AppVersionMapper">
 	<!-- 根据APPid获取版本信息 -->
-	<select id="findaAppVersions" parameterType="int" resultType="AppVersion">
+	<select id="findAppVersions" parameterType="int" resultType="AppVersion">
 		select * from app_version where appId=#{appId}
 	</select>
 	<!-- 根据APPid获取版本数量 -->
-	<select id="getAppVeersionsCount" parameterType="int"
+	<select id="getAppVersionsCount" parameterType="int"
 		resultType="int">
 		select count(1) from app_version where appId=#{appId}
 	</select>
@@ -17,6 +17,7 @@
 	<delete id="del">
 		delete from app_version where id=#{id}
 	</delete>
+
 	<select id="getAppVersionById" resultType="AppVersion">
 		select * from
 		app_version where id=#{id}
