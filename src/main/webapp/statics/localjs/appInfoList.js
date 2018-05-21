@@ -11,7 +11,7 @@ $("#queryCategoryLevel1").change(function() {
 			},
 			success : function(data) {
 				$("#queryCategoryLevel2").html("");
-				var option = "<option value=\"\">请选择</option>";
+				var option = "<option value=\"\">二级分类</option>";
 				for (i = 0; i < data.length; i++) {
 					option += "<option value=\"" + data[i].id + "\">" + data[i].categoryName + "</option>";
 				}
@@ -22,8 +22,8 @@ $("#queryCategoryLevel1").change(function() {
 			}
 		})
 	} else {
-		$("#queryCategoryLevel2").html("<option value=\"\">请选择</option>");
-		$("#queryCategoryLevel3").html("<option value=\"\">请选择</option>");
+		$("#queryCategoryLevel2").html("<option value=\"\">二级分类</option>");
+		$("#queryCategoryLevel3").html("<option value=\"\">三级分类</option>");
 	}
 })
 //加载三级列表
@@ -39,7 +39,7 @@ $("#queryCategoryLevel2").change(function() {
 			},
 			success : function(data) {
 				$("#queryCategoryLevel3").html("");
-				var option = "<option value=\"\">请选择</option>";
+				var option = "<option value=\"\">三级分类</option>";
 				for (i = 0; i < data.length; i++) {
 					option += "<option value=\"" + data[i].id + "\">" + data[i].categoryName + "</option>";
 				}
@@ -50,7 +50,7 @@ $("#queryCategoryLevel2").change(function() {
 			}
 		})
 	} else {
-		$("#queryCategoryLevel3").html("<option value=\"\">请选择</option>");
+		$("#queryCategoryLevel3").html("<option value=\"\">三级分类</option>");
 	}
 
 })
@@ -128,9 +128,9 @@ $(".soldUp").on("click", function() {
 					alert("上架失败!!");
 				}
 				if (data.result == "true") {
-					$show.html("以上架");
-					var calssName = "btn btn-info btn-xs";
-					$show.addClass(calssName);
+					$show.html("已上架");
+					var className = "btn btn-info btn-xs";
+					$show.addClass(className);
 					$show.hide();
 					$show.slideDown(200);
 				}
@@ -159,9 +159,9 @@ $(".soldDown").on("click", function() {
 					alert("下架失败!!");
 				}
 				if (data.result == "true") {
-					$show.html("以下架");
-					var calssName = "btn btn-success btn-xs";
-					$show.addClass(calssName);
+					$show.html("已下架");
+					var className = "btn btn-success btn-xs";
+					$show.addClass(className);
 					$show.hide();
 					$show.slideDown(200);
 				}

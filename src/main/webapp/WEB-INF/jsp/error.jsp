@@ -1,10 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Error 403</title>
+  <title>Error</title>
   <!-- Mobile specific metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- Force IE9 to render in normal mode -->
@@ -37,9 +36,9 @@
 </head>
 <body class="error-page">
 <div class="container animated fadeInDown">
-  <h1 class="error-number">403</h1>
-  <h1 class="text-center mb25">访问被拒绝 ...</h1>
-  <p class="text-center s24">你没有权限访问这个页面。</p>
+  <h1 class="error-number">ERROR</h1>
+  <h1 class="text-center mb25">访问出错了 ...</h1>
+  <p class="text-center s24">${exception.message }</p>
   <div class="text-center mt25">
     <div class="btn-group">
       <a href="javascript: history.go(-1)" class="btn btn-default btn-lg"><i class="en-arrow-left8"></i>  返回</a>
