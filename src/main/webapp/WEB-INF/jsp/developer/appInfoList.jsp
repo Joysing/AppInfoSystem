@@ -181,7 +181,6 @@
                                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#${appInfo.id}">
                                                 操作
                                                 </button>
-
                                                     <!-- 模态框（Modal） -->
                                                     <div class="modal fade" id="${appInfo.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
