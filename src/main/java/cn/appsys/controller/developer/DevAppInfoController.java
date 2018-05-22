@@ -248,7 +248,7 @@ public class DevAppInfoController {
 					e.printStackTrace();
 					model.addAttribute("fileUploadError", Constants.FILEUPLOAD_ERROR_2);
 				}
-				logoPicPath = request.getContextPath() + "/statics/updateFiles" + fileName;
+				logoPicPath = request.getContextPath() + "/statics/updateFiles/" + fileName;
 				logoLocPath = path + file.separator + fileName;
 				logger.info(logoLocPath + "\n" + logoPicPath);
 			} else {
