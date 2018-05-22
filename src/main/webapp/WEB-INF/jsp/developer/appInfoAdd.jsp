@@ -13,7 +13,7 @@
 <!-- Start #content -->
 <div id="content">
 
-    <form class="form-horizontal form-label-left" action="doadd"
+    <form class="form-horizontal form-label-left" action="doAdd"
           enctype="multipart/form-data" method="post">
 
         <p>${devUserSession.devName}</p>
