@@ -13,7 +13,7 @@ public interface AppVersionMapper {
 	 * @param appId
 	 * @return
 	 */
-	List<AppVersion> findaAppVersions(@Param("appId") Integer appId);
+	List<AppVersion> findAppVersions(@Param("appId") Integer appId);
 
 	/**
 	 * 根据APPid获取版本数量
@@ -21,7 +21,7 @@ public interface AppVersionMapper {
 	 * @param appId
 	 * @return
 	 */
-	int getAppVeersionsCount(@Param("appId") Integer appId);
+	int getAppVersionsCount(@Param("appId") Integer appId);
 
 	/**
 	 * 根据APPid删除所有版本信息

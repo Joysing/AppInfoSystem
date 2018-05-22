@@ -20,13 +20,13 @@ public class AppVersionServiceImpl implements AppVersionService {
 	private AppInfoMapper appInfoMapper;
 
 	@Override
-	public List<AppVersion> findaAppVersions(Integer appId) {
-		return appVersionMapper.findaAppVersions(appId);
+	public List<AppVersion> findAppVersions(Integer appId) {
+		return appVersionMapper.findAppVersions(appId);
 	}
 
 	@Override
-	public int getAppVeersionsCount(Integer appId) {
-		return appVersionMapper.getAppVeersionsCount(appId);
+	public int getAppVersionsCount(Integer appId) {
+		return appVersionMapper.getAppVersionsCount(appId);
 	}
 
 	@Override

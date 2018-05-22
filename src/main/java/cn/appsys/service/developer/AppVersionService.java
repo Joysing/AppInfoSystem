@@ -13,7 +13,7 @@ public interface AppVersionService {
 	 * @param appId
 	 * @return
 	 */
-	List<AppVersion> findaAppVersions(Integer appId);
+	List<AppVersion> findAppVersions(Integer appId);
 
 	/**
 	 * 根据APPid获取版本数量
@@ -21,7 +21,7 @@ public interface AppVersionService {
 	 * @param appId
 	 * @return
 	 */
-	int getAppVeersionsCount(Integer appId);
+	int getAppVersionsCount(Integer appId);
 
 	/**
 	 * 根据APPid删除所有版本信息
