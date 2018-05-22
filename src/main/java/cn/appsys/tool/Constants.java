@@ -10,7 +10,7 @@ public class Constants {
 	/**
 	 * 后台管理员用户类
 	 */
-	public final static String USER_SESSION = "userSession";
+	public final static String USER_SESSION = "backendUserSession";
 	/**
 	 * 开发者用户类
 	 */

@@ -7,6 +7,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -83,6 +85,7 @@ public class DevAppInfoController {
 			@RequestParam(value = "queryCategoryLevel3", required = false) String _queryCategoryLevel3,
 			@RequestParam(value = "queryFlatformId", required = false) String _queryFlatformId,
 			@RequestParam(value = "pageIndex", required = false) String pageIndex) {
+
 		// 获取开发者用户id
 		Integer devId = ((DevUser) session.getAttribute(Constants.DEV_USER_SESSION)).getId();
 
@@ -143,6 +146,7 @@ public class DevAppInfoController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		// 向模型添加数据
 		model.addAttribute("appInfos", appInfos);
 		model.addAttribute("statusList", statusList);
@@ -204,7 +208,6 @@ public class DevAppInfoController {
 	 * @param model
 	 * @param softwareName
 	 * @param APKName
-	 * @param supportROM
 	 * @param interfaceLanguage
 	 * @param softwareSize
 	 * @param downloads
@@ -253,6 +256,7 @@ public class DevAppInfoController {
 				return "developer/appInfoAdd";
 			}
 		}
+
 		// 添加APP信息
 		appInfo.setStatus(1);
 		appInfo.setDevId(devId);
@@ -352,7 +356,7 @@ public class DevAppInfoController {
 		List<AppVersion> appVersions = null;
 		try {
 			appInfo = appInfoService.getAppInfo(Integer.parseInt(id), null);
-			appVersions = appVersionService.findaAppVersions(Integer.parseInt(id));
+			appVersions = appVersionService.findAppVersions(Integer.parseInt(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("加载信息失败!!");
@@ -360,27 +364,6 @@ public class DevAppInfoController {
 		model.addAttribute("appInfo", appInfo);
 		model.addAttribute("appVersions", appVersions);
 		return "developer/appInfoView";
-	}
-
-	@RequestMapping("/down")
-	public void down(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam(value = "apkFileName") String apkFileName,
-			@RequestParam(value = "apkLocPath") String apkLocPath) throws Exception {
-		// 获取输入流
-		InputStream bis = new BufferedInputStream(new FileInputStream(new File(apkLocPath)));
-		// 假如以中文名下载的话需要 转码，免得文件名中文乱码
-		apkFileName = URLEncoder.encode(apkFileName, "UTF-8");
-		// 设置文件下载头
-		response.addHeader("Content-Disposition", "attachment;filename=" + apkFileName);
-		// 1.设置文件ContentType类型，这样设置，会自动判断下载文件类型
-		response.setContentType("multipart/form-data");
-		BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream());
-		int len = 0;
-		while ((len = bis.read()) != -1) {
-			out.write(len);
-			out.flush();
-		}
-		out.close();
 	}
 
 	/**
@@ -397,7 +380,7 @@ public class DevAppInfoController {
 		try {
 			if (EmptyUtils.isNotEmpty(appInfoId)) {
 				appInfo = appInfoService.getAppInfo(Integer.parseInt(appInfoId), null);
-				appVersions = appVersionService.findaAppVersions(Integer.parseInt(appInfoId));
+				appVersions = appVersionService.findAppVersions(Integer.parseInt(appInfoId));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -425,19 +408,24 @@ public class DevAppInfoController {
 			HttpServletRequest request) {
 		String downloadLink = null;// 下载链接S
 		String apkLocPath = null;// apk文件的服务器存储路径
-
+		String apkFileName=null;
 		if (!updateFile.isEmpty()) {
 			logger.info("111111111111111111111111111111111111111");
-			String path = request.getSession().getServletContext().getRealPath("/") + "/statics/updateFiles";// 项目实际路径
+			String path = request.getSession().getServletContext().getRealPath("statics"+File.separator+"updateFiles");// 项目实际路径
 			String suffix = FilenameUtils.getExtension(updateFile.getOriginalFilename());// 上传文件后缀名称
 			int fileSize = 50000000;// 文件大小
 			if (updateFile.getSize() > fileSize) {
 				model.addAttribute("fileUploadError", Constants.FILEUPLOAD_ERROR_4);
 				return "developer/addVersion";
 			} else if (suffix.equals("apk")) {
-				String fileName = appVersion.getAppName() + "-" + appVersion.getVersionNo() + ".apk";// 文件名称
-				logger.info(suffix + fileName + path);
-				File file = new File(path, fileName);
+				try {
+					apkFileName =appInfoService.getAppInfo(appVersion.getAppId(),null).getAPKName()
+							+ "-" + appVersion.getVersionNo() + ".apk";// 文件名称
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				logger.info(suffix + apkFileName + path);
+				File file = new File(path, apkFileName);
 
 				if (!file.exists()) {// 如果文件不存在则创建
 					file.mkdirs();
@@ -450,19 +438,25 @@ public class DevAppInfoController {
 					model.addAttribute("fileUploadError", Constants.FILEUPLOAD_ERROR_2);
 				}
 
-				downloadLink = request.getContextPath() + "/statics/updateFiles";
-				apkLocPath = path + File.separator + fileName;
+				downloadLink = request.getContextPath()+"/statics/updateFiles/"+apkFileName;
+				apkLocPath = path+File.separator+apkFileName;
 
 			} else {
 				model.addAttribute("fileUploadError", Constants.FILEUPLOAD_ERROR_3);
 				return "developer/addVersion";
 			}
 		}
-
-		appVersion.setCreationDate(new Date());
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String dateString=simpleDateFormat.format(new Date().getTime());
+		try {
+			appVersion.setCreationDate(simpleDateFormat.parse(dateString));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		appVersion.setApkLocPath(apkLocPath);
 		appVersion.setDownloadLink(downloadLink);
-
+		appVersion.setApkFileName(apkFileName);
+		logger.info(appVersion.toString());
 		if (appVersionService.add(appVersion)) {
 			return "redirect:list";
 		}
@@ -529,7 +523,7 @@ public class DevAppInfoController {
 		Map<String, String> data = new HashMap<String, String>();
 		if (EmptyUtils.isNotEmpty(id)) {
 			try {
-				if (appVersionService.getAppVeersionsCount(Integer.parseInt(id)) > 0) {// 如果有版本信息则删除
+				if (appVersionService.getAppVersionsCount(Integer.parseInt(id)) > 0) {// 如果有版本信息则删除
 					appVersionService.delAll(Integer.parseInt(id));
 				}
 				if (appInfoService.deleteAppInfoById(Integer.parseInt(id))) {
@@ -614,10 +608,11 @@ public class DevAppInfoController {
 		if (EmptyUtils.isNotEmpty(appVersionId) && EmptyUtils.isNotEmpty(appInfoId)) {
 			try {
 				newAppVersion = appVersionService.getAppVersionById(Integer.parseInt(appVersionId));
-				appVersions = appVersionService.findaAppVersions(Integer.parseInt(appInfoId));
+				appVersions = appVersionService.findAppVersions(Integer.parseInt(appInfoId));
 				appInfo = appInfoService.getAppInfo(Integer.parseInt(appInfoId), null);
 			} catch (Exception e) {
 				e.printStackTrace();
+				throw new RuntimeException("加载信息失败!!");
 			}
 			model.addAttribute("newAppVersion", newAppVersion);
 			model.addAttribute("appVersions", appVersions);

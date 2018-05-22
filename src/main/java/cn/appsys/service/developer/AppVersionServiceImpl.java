@@ -20,31 +20,31 @@ public class AppVersionServiceImpl implements AppVersionService {
 	private AppInfoMapper appInfoMapper;
 
 	@Override
-	public List<AppVersion> findaAppVersions(Integer appId) {
-		return appVersionMapper.findaAppVersions(appId);
+	public List<AppVersion> findAppVersions(Integer appId) {
+		return appVersionMapper.findAppVersions(appId);
 	}
 
 	@Override
-	public int getAppVeersionsCount(Integer appId) {
-		return appVersionMapper.getAppVeersionsCount(appId);
+	public int getAppVersionsCount(Integer appId) {
+		return appVersionMapper.getAppVersionsCount(appId);
 	}
 
 	@Override
 	public boolean delAll(Integer appId) {
-		boolean falg = false;
+		boolean flag = false;
 		if (appVersionMapper.delAll(appId) > 0) {
-			falg = true;
+			flag = true;
 		}
-		return falg;
+		return flag;
 	}
 
 	@Override
 	public boolean del(Integer id) {
-		boolean falg = false;
+		boolean flag = false;
 		if (appVersionMapper.del(id) > 0) {
-			falg = true;
+			flag = true;
 		}
-		return falg;
+		return flag;
 	}
 
 	@Override
@@ -54,29 +54,29 @@ public class AppVersionServiceImpl implements AppVersionService {
 
 	@Override
 	public boolean add(AppVersion appVersion) {
-		int version;
-		boolean falg = false;
+		Integer versionId;
+		boolean flag = false;
 		if (appVersionMapper.add(appVersion) > 0) {
-			version = appVersion.getId();
+			versionId = appVersion.getId();
 			try {
-				if (appInfoMapper.updateVersionId(version, appVersion.getAppId()) > 0) {
-					falg = true;
+				if (appInfoMapper.updateVersionId(versionId, appVersion.getAppId()) > 0) {
+					flag = true;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		return falg;
+		return flag;
 	}
 
 	@Override
 	public boolean update(AppVersion appVersion) {
-		boolean falg = false;
+		boolean flag = false;
 		if (appVersionMapper.update(appVersion) > 0) {
-			falg = true;
+			flag = true;
 		}
-		return falg;
+		return flag;
 	}
 
 }

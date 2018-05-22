@@ -15,6 +15,7 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+
     <!--     ```````````````````jar包容器 ```````````````````   -->
     <dependencies>
         <dependency>
@@ -205,6 +206,16 @@
     </dependencies>
     <!--  ```````end````````` -->
     <build>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
         <finalName>appinfosystem</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>

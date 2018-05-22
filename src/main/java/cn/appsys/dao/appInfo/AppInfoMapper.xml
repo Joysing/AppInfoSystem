@@ -159,6 +159,7 @@
 			</if>
 		</trim>
 	</select>
+
 	<update id="deleteAppLogo" parameterType="Integer">
 		update app_info
 		set
@@ -166,6 +167,7 @@
 		logoLocPath = null
 		where id = #{id}
 	</update>
+
 	<update id="updateVersionId">
 		update app_info
 		set versionId=#{versionId}

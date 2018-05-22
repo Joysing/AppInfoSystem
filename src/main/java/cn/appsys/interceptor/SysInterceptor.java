@@ -12,7 +12,7 @@ import cn.appsys.tool.EmptyUtils;
 /**
  * 系统拦截器
  * 
- * @author 117
+ * @Author Joysing
  *
  */
 public class SysInterceptor extends HandlerInterceptorAdapter {

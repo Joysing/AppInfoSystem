@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * 开发者用户控制器0
+ * 开发者用户控制器
  * 
- * @author 117
+ * @author 117！！！！
  *
  */
 
@@ -28,7 +28,7 @@ public class DevUserController {
 
 	@RequestMapping(value = "/main")
 	public String mainPage(){
-		logger.info("进入主界面");
+		logger.info("进入主界面.");
 		return "developer/main";
 	}
 

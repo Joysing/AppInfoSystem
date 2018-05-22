@@ -1,9 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>后台管理系统</title>
+  <title>Error 404</title>
   <!-- Mobile specific metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- Force IE9 to render in normal mode -->
@@ -12,6 +13,7 @@
   <meta name="description" content=""/>
   <meta name="keywords" content=""/>
   <meta name="application-name" content="sprFlat admin template" />
+  <!-- Import google fonts - Heading first/ text second -->
   <!-- Css files -->
   <!-- Icons -->
   <link href="${pageContext.request.contextPath}/assets/css/icons.css" rel="stylesheet" />
@@ -33,72 +35,18 @@
   <link rel="icon" href="${pageContext.request.contextPath}/assets/img/ico/favicon.ico" type="image/png">
   <meta name="msapplication-TileColor" content="#3399cc" />
 </head>
-<body class="login-page">
-<!-- Start #login -->
-<div id="login" class="animated bounceIn">
-  <h1>APP信息管理平台</h1>
-  <!-- Start .login-wrapper -->
-  <div class="login-wrapper">
-    <ul id="myTab" class="nav nav-tabs nav-justified bn">
-      <li class="active">
-        <a href="#log-in" data-toggle="tab">开发者登录</a>
-      </li>
-      <li class="">
-        <a href="#register" data-toggle="tab">后台管理登录</a>
-      </li>
-    </ul>
-    <div id="myTabContent" class="tab-content bn">
-      <div class="tab-pane fade active in" id="log-in">
-        <form class="form-horizontal mt10" action="${pageContext.request.contextPath}/dev/doLogin" method="post" id="login-form" role="form">
-          <div class="form-group">
-            <div class="col-lg-12">
-              <input type="text" name="devCode" class="form-control left-icon" value="test001" placeholder="开发者账号">
-              <i class="ec-user s16 left-input-icon"></i>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-12">
-              <input type="password" name="devPassword" class="form-control left-icon" value="123456" placeholder="开发者密码">
-              <i class="ec-locked s16 left-input-icon"></i>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-12">
-              <!-- col-lg-12 start here -->
-              <button class="btn btn-success btn-block" type="submit">登录</button>
-            </div>
-            <!-- col-lg-12 end here -->
-          </div>
-        </form>
-      </div>
-      <div class="tab-pane fade" id="register">
-        <form class="form-horizontal mt20" action="${pageContext.request.contextPath}/user/doLogin" method="post" role="form">
-          <div class="form-group">
-            <div class="col-lg-12">
-              <input type="text" name="userCode" class="form-control left-icon" value="admin" placeholder="管理员账号">
-              <i class="ec-user s16 left-input-icon"></i>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-12">
-              <input type="password" name="userPassword" class="form-control left-icon" value="123456" placeholder="管理员密码">
-              <i class="ec-locked s16 left-input-icon"></i>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-lg-12">
-              <!-- col-lg-12 start here -->
-              <button class="btn btn-success btn-block" type="submit">登录</button>
-            </div>
-            <!-- col-lg-12 end here -->
-          </div>
-        </form>
-      </div>
+<body class="error-page">
+<div class="container animated fadeInDown">
+  <h1 class="error-number">404</h1>
+  <h1 class="text-center mb25">找不到页面</h1>
+  <p class="text-center s24">程序员还没写这个页面</p>
+  <div class="text-center mt25">
+    <div class="btn-group">
+      <a href="javascript: history.go(-1)" class="btn btn-default btn-lg"><i class="en-arrow-left8"></i>  返回</a>
+      <a href="${pageContext.request.contextPath }" class="btn btn-default btn-lg"><i class="im-home"></i> 首页</a>
     </div>
   </div>
-  <!-- End #.login-wrapper -->
 </div>
-<!-- End #login -->
 <!-- Javascripts -->
 <!-- Load pace first -->
 <script src="${pageContext.request.contextPath}/assets/plugins/core/pace/pace.min.js"></script>
@@ -116,11 +64,5 @@
 <![endif]-->
 <!-- Bootstrap plugins -->
 <script src="${pageContext.request.contextPath}/assets/js/bootstrap/bootstrap.js"></script>
-<!-- Form plugins -->
-<script src="${pageContext.request.contextPath}/assets/plugins/forms/icheck/jquery.icheck.js"></script>
-<script src="${pageContext.request.contextPath}/assets/plugins/forms/validation/jquery.validate.js"></script>
-<script src="${pageContext.request.contextPath}/assets/plugins/forms/validation/additional-methods.min.js"></script>
-<!-- Init plugins olny for this page -->
-<script src="${pageContext.request.contextPath}/assets/js/pages/login.js"></script>
 </body>
 </html>
