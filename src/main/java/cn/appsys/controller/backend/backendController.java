@@ -42,6 +42,7 @@ public class backendController {
 	@RequestMapping(value = "/appList")
 	public String applist(Model model, HttpSession session,
 			@RequestParam(value = "querySoftwareName", required = false) String querySoftwareName,
+			@RequestParam(value = "queryStatus", required = false) String _queryStatus,
 			@RequestParam(value = "queryCategoryLevel1", required = false) String _queryCategoryLevel1,
 			@RequestParam(value = "queryCategoryLevel2", required = false) String _queryCategoryLevel2,
 			@RequestParam(value = "queryCategoryLevel3", required = false) String _queryCategoryLevel3,
@@ -52,12 +53,17 @@ public class backendController {
 
 		// 定义各种变量
 		List<AppInfo> appInfos = null;// APP信息集合
+		List<DataDictionary> statusList = null;// 状态数据
 		List<DataDictionary> flatFormList = null;// 平台数据
 		List<AppCategory> categoryLevel1List = null;// 一级分类列表
 		List<AppCategory> categoryLevel2List = null;// 二级和三级分类列表通过异步ajax获取
 		List<AppCategory> categoryLevel3List = null;
 
 		// 转换数据类型
+		Integer queryStatus = null;
+		if (EmptyUtils.isNotEmpty(_queryStatus)) {
+			queryStatus = Integer.parseInt(_queryStatus);
+		}
 		Integer queryCategoryLevel1 = null;
 		if (EmptyUtils.isNotEmpty(_queryCategoryLevel1)) {
 			queryCategoryLevel1 = Integer.parseInt(_queryCategoryLevel1);
@@ -82,7 +88,7 @@ public class backendController {
 		}
 		int totalCount = 0;
 		try {
-			totalCount = appInfoService.getAppInfoCount(querySoftwareName, 1, queryCategoryLevel1, queryCategoryLevel2,
+			totalCount = appInfoService.getAppInfoCount(querySoftwareName, queryStatus, queryCategoryLevel1, queryCategoryLevel2,
 					queryCategoryLevel3, queryFlatformId, null);
 
 		} catch (Exception e) {
@@ -93,18 +99,21 @@ public class backendController {
 
 		// 获取各种数据
 		try {
-			appInfos = appInfoService.getAppInfos(querySoftwareName, 1, queryCategoryLevel1, queryCategoryLevel2,
+			appInfos = appInfoService.getAppInfos(querySoftwareName, queryStatus, queryCategoryLevel1, queryCategoryLevel2,
 					queryCategoryLevel3, queryFlatformId, null, from, pageSize);
 			categoryLevel1List = appCategoryService.getAppCategories(null);
+			statusList = dataDictionaryService.getDataDictionaries(Constants.APP_STATUS);
 			flatFormList = dataDictionaryService.getDataDictionaries(Constants.APP_FLATFORM);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		// 向模型添加数据
 		model.addAttribute("appInfos", appInfos);
+		model.addAttribute("statusList", statusList);
 		model.addAttribute("flatFormList", flatFormList);
 		model.addAttribute("categoryLevel1List", categoryLevel1List);
 		model.addAttribute("pages", pages);
+		model.addAttribute("queryStatus", queryStatus);
 		model.addAttribute("querySoftwareName", querySoftwareName);
 		model.addAttribute("queryCategoryLevel1", queryCategoryLevel1);
 		model.addAttribute("queryCategoryLevel2", queryCategoryLevel2);
