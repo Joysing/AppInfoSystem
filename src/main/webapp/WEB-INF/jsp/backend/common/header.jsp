@@ -305,7 +305,7 @@
 			<li>
 				<a href="#">应用管理<i class="im-paragraph-justify"></i></a>
 				<ul class="nav sub">
-					<li><a href="${pageContext.request.contextPath }/dev/appInfo/list"><i class="ec-pencil2"></i> APP维护</a>
+					<li><a href="${pageContext.request.contextPath }/backend/appInfo/appList"><i class="ec-pencil2"></i> APP维护</a>
 					</li>
 					<li><a href="form-validation.html"><i class="im-checkbox-checked"></i> Form Validation</a>
 					</li>
