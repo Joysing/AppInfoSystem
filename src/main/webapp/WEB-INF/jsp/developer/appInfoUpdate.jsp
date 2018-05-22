@@ -97,9 +97,7 @@
 							<input type="hidden" value="${appInfo.flatformId}" id="fid" /> <select
 								name="flatformId" id="flatformId" class="form-control"
 								required="required">
-								<c:forEach items="${flatFormList }" var="flatForm">
-									<option value="${flatForm.valueId }">${flatForm.valueName }</option>
-								</c:forEach>
+
 							</select>
 						</div>
 					</div>
@@ -111,10 +109,7 @@
 							<input type="hidden" value="${appInfo.categoryLevel1}" id="cl1" />
 							<select name="categoryLevel1" id="categoryLevel1"
 								class="form-control" required="required">
-								<c:forEach items="${categoryLevel1List}" var="categoryLevel1">
-									<c:if test="${appInfo.categoryLevel1==categoryLevel1.id }"></c:if>
-									<option value="${categoryLevel1.id }" selected="selected">${categoryLevel1.categoryName }</option>
-								</c:forEach>
+
 							</select>
 						</div>
 					</div>
@@ -203,4 +198,4 @@
 
 <%@include file="common/footer.jsp"%>
 <script
-		src="${pageContext.request.contextPath }/statics/localjs/appInfoList.js"></script>
+		src="${pageContext.request.contextPath }/statics/localjs/appInfoUpdate.js"></script>
