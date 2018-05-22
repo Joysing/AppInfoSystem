@@ -12,7 +12,7 @@
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>
-					修改APP基础信息 <i class="fa fa-user"></i><small>${devUserSession.devName}</small>
+					修改APP基础信息 <i class="fa fa-user"></i>
 				</h2>
 				<div class="clearfix"></div>
 			</div>
@@ -198,4 +198,4 @@
 
 <%@include file="common/footer.jsp"%>
 <script
-		src="${pageContext.request.contextPath }/statics/localjs/appInfoUpdate.js"></script>
+		src="${pageContext.request.contextPath }/statics/json/appInfoUpdate.js"></script>

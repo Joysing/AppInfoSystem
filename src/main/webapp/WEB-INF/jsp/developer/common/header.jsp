@@ -20,9 +20,7 @@
 	<meta name="application-name" content="sprFlat admin template" />
 	<!-- Import google fonts - Heading first/ text second -->
 	<link rel='stylesheet' type='text/css'>
-	<!--[if lt IE 9]>
 
-	<![endif]-->
 	<!-- Css files -->
 	<!-- Icons -->
 	<link href="${pageContext.request.contextPath}/assets/css/icons.css" rel="stylesheet" />
@@ -42,7 +40,6 @@
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/assets/img/ico/apple-touch-icon-72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/assets/img/ico/apple-touch-icon-57-precomposed.png">
 	<link rel="icon" href="${pageContext.request.contextPath}/assets/img/ico/favicon.ico" type="image/png">
-	<!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
 	<meta name="msapplication-TileColor" content="#3399cc" />
 </head>
 <body>

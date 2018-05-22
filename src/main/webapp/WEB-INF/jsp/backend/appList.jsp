@@ -11,7 +11,7 @@
 				<h1 class="page-header"><i class="im-paragraph-justify"></i> APP信息管理维护</h1>
 				<!-- Start .bredcrumb -->
 				<ul class="breadcrumb">
-					<li><i class="im-home"></i><a href="${pageContext.request.contextPath}">后台首页</a><i
+					<li><i class="im-home"></i><a href="${pageContext.request.contextPath}/user/main">后台首页</a><i
 							class="en-arrow-right7"></i></li>
 					<li><i class="im-paragraph-justify"></i>APP信息管理</li>
 				</ul>
@@ -205,7 +205,7 @@
 </div>
 
 <%@include file="common/footer.jsp" %>
-<script src="${pageContext.request.contextPath }/statics/localjs/appList.js"></script>
+<script src="${pageContext.request.contextPath }/statics/json/appList.js"></script>
 <script src="${pageContext.request.contextPath }/statics/localjs/appInfoList.js"></script>
 <script src="${pageContext.request.contextPath }/assets/plugins/tables/datatables/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath }/assets/plugins/tables/datatables/jquery.dataTablesBS3.js"></script>

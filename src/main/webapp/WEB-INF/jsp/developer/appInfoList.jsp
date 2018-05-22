@@ -235,7 +235,7 @@
 </div>
 
 <%@include file="common/footer.jsp" %>
-<script src="${pageContext.request.contextPath }/statics/localjs/appInfoList.js"></script>
+<script src="${pageContext.request.contextPath }/statics/json/appInfoList.js"></script>
 <script src="${pageContext.request.contextPath }/assets/plugins/tables/datatables/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath }/assets/plugins/tables/datatables/jquery.dataTablesBS3.js"></script>
 <script src="${pageContext.request.contextPath }/assets/plugins/tables/datatables/tabletools/ZeroClipboard.js"></script>

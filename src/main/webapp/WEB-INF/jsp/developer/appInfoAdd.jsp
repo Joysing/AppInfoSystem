@@ -16,7 +16,6 @@
     <form class="form-horizontal form-label-left" action="doAdd"
           enctype="multipart/form-data" method="post">
 
-        <p>${devUserSession.devName}</p>
         <span class="section">添加APP信息</span>
 
         <div class="item form-group bad">
@@ -186,5 +185,5 @@
 
 <%@include file="common/footer.jsp"%>
 <script
-        src="${pageContext.request.contextPath }/statics/localjs/appInfoAdd.js">
+        src="${pageContext.request.contextPath }/statics/json/appInfoAdd.js">
 </script>

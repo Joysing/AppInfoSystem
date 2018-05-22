@@ -1,13 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="common/header.jsp"%>
-<div class="x_content">
+
+<div id="content">
+	<div class="content-wrapper">
+		<div class="row">
+			<!-- Start .row -->
+			<!-- Start .page-header -->
+			<div class="col-lg-12 heading">
+				<h1 class="page-header"><i class="im-paragraph-justify"></i> APP信息管理维护</h1>
+				<!-- Start .bredcrumb -->
+				<ul class="breadcrumb">
+					<li><i class="im-home"></i><a href="${pageContext.request.contextPath}/user/main">后台首页</a><i
+							class="en-arrow-right7"></i></li>
+					<li><i class="im-paragraph-justify"></i>
+						<a href="${pageContext.request.contextPath}/backend/appInfo/appList">APP列表</a><i
+							class="en-arrow-right7"></i></li>
+					<li><i class="im-paragraph-justify"></i>
+						审核APP信息</li>
+				</ul>
+				<!-- End .breadcrumb -->
+			</div>
+			<!-- End .page-header -->
+		</div>
+		<div class="outlet">
+			<div class="row">
+				<!-- Start .row -->
+				<div class="col-lg-12">
+					<!-- Start col-lg-12 -->
+					<div class="panel panel-default toggle" id="spr_0">
+						<!-- Start .panel -->
+						<div class="panel-heading">
+							<h3 class="panel-title">审核APP信息</h3>
+							<div class="panel-controls panel-controls-hide" style="display: none;"><a href="#"
+																									  class="toggle panel-minimize"><i
+									class="im-minus"></i></a></div>
+						</div>
+						<div class="panel-body" style="overflow: hidden; display: block;">
 
 	<form class="form-horizontal form-label-left">
-
-		<p>${userSession.userName}</p>
-		<span class="section">审核APP信息</span>
-
 		<div class="item form-group bad">
 			<label class="control-label col-md-3 col-sm-3 col-xs-12"
 				for="softwareName">软件名称 <span class="required">*</span>
@@ -208,6 +239,11 @@
 			</div>
 		</div>
 	</form>
+			</div>
+		</div>
+	</div>
+			</div>
+		</div>
 </div>
 <%@include file="common/footer.jsp"%>
 <script type="text/javascript">

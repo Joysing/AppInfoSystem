@@ -20,9 +20,6 @@
 	<meta name="application-name" content="sprFlat admin template" />
 	<!-- Import google fonts - Heading first/ text second -->
 	<link rel='stylesheet' type='text/css'>
-	<!--[if lt IE 9]>
-
-	<![endif]-->
 	<!-- Css files -->
 	<!-- Icons -->
 	<link href="${pageContext.request.contextPath}/assets/css/icons.css" rel="stylesheet" />
@@ -42,7 +39,6 @@
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/assets/img/ico/apple-touch-icon-72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/assets/img/ico/apple-touch-icon-57-precomposed.png">
 	<link rel="icon" href="${pageContext.request.contextPath}/assets/img/ico/favicon.ico" type="image/png">
-	<!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
 	<meta name="msapplication-TileColor" content="#3399cc" />
 </head>
 <body>
@@ -52,7 +48,7 @@
 		<div class="navbar">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="index.html">
-					<i class="im-windows8 text-logo-element animated bounceIn"></i><span class="text-logo">开发者平台</span>
+					<i class="im-windows8 text-logo-element animated bounceIn"></i><span class="text-logo">管理员平台</span>
 					<span class="text-slogan"></span>
 				</a>
 			</div>
@@ -69,7 +65,7 @@
 				<ul class="nav navbar-nav pull-right">
 					<li class="dropdown">
 						<a href="#" data-toggle="dropdown">
-							<img class="user-avatar" src="${pageContext.request.contextPath}/assets/img/avatars/48.jpg" alt="SuggeElson">${devUserSession.devName }<strong> | 角色：开发者账户</strong></a>
+							<img class="user-avatar" src="${pageContext.request.contextPath}/assets/img/avatars/48.jpg" alt="SuggeElson">${backendUserSession.userName }<strong> | 角色：管理员</strong></a>
 						<ul class="dropdown-menu right" role="menu">
 							<li><a href="${pageContext.request.contextPath }/dev/doLogout"><i class="im-exit"></i>注销登录</a>
 							</li>
@@ -90,7 +86,7 @@
 	<div class="sidebar-inner">
 		<!-- Start #sideNav -->
 		<ul id="sideNav" class="nav nav-pills nav-stacked">
-			<li><a href="${pageContext.request.contextPath }/dev/main">后台首页 <i class="im-screen"></i></a>
+			<li><a href="${pageContext.request.contextPath }/user/main">后台首页 <i class="im-screen"></i></a>
 			</li>
 			<li>
 				<a href="#">应用管理<i class="im-paragraph-justify"></i></a>

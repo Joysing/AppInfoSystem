@@ -278,6 +278,6 @@
 	</div>
 </div>
 <%@include file="common/footer.jsp" %>
-<script src="${pageContext.request.contextPath }/statics/localjs/appInfoList.js"></script>
+<script src="${pageContext.request.contextPath }/statics/json/appInfoList.js"></script>
 
 <script src="${pageContext.request.contextPath }/assets/js/pages/data-tables.js"></script>
