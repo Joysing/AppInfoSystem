@@ -26,7 +26,7 @@ import cn.appsys.tool.EmptyUtils;
 import cn.appsys.tool.PageSupport;
 
 @Controller
-@RequestMapping(value = "/backend")
+@RequestMapping(value = "/backend/appInfo")
 public class backendController {
 	@Resource
 	private AppInfoService appInfoService;
