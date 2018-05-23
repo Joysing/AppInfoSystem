@@ -410,7 +410,6 @@ public class DevAppInfoController {
 		String apkLocPath = null;// apk文件的服务器存储路径
 		String apkFileName=null;
 		if (!updateFile.isEmpty()) {
-			logger.info("111111111111111111111111111111111111111");
 			String path = request.getSession().getServletContext().getRealPath("statics"+File.separator+"updateFiles");// 项目实际路径
 			String suffix = FilenameUtils.getExtension(updateFile.getOriginalFilename());// 上传文件后缀名称
 			int fileSize = 50000000;// 文件大小
