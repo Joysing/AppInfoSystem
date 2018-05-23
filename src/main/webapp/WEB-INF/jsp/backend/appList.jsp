@@ -28,7 +28,7 @@
 					<div class="panel panel-default toggle" id="spr_0">
 						<!-- Start .panel -->
 						<div class="panel-heading">
-							<h3 class="panel-title">查找软件</h3>
+							<h3 class="panel-title">查找软件 </h3>
 							<div class="panel-controls panel-controls-hide" style="display: none;"><a href="#"
 																									  class="toggle panel-minimize"><i
 									class="im-minus"></i></a></div>

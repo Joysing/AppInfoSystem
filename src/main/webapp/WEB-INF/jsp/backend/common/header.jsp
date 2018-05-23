@@ -86,7 +86,7 @@
 	<div class="sidebar-inner">
 		<!-- Start #sideNav -->
 		<ul id="sideNav" class="nav nav-pills nav-stacked">
-			<li><a href="${pageContext.request.contextPath }/user/main">后台首页 <i class="im-screen"></i></a>
+			<li><a href="${pageContext.request.contextPath }/user/main">后台首页  <i class="im-screen"></i></a>
 			</li>
 			<li>
 				<a href="#">应用管理<i class="im-paragraph-justify"></i></a>
