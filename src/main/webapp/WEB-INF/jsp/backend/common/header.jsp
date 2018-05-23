@@ -47,10 +47,10 @@
 	<div class="container-fluid">
 		<div class="navbar">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">
+				<div class="navbar-brand">
 					<i class="im-windows8 text-logo-element animated bounceIn"></i><span class="text-logo">管理员平台</span>
 					<span class="text-slogan"></span>
-				</a>
+				</div>
 			</div>
 			<nav class="top-nav" role="navigation">
 				<ul class="nav navbar-nav pull-left">
