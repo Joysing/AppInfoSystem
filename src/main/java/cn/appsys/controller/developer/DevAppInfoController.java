@@ -206,15 +206,6 @@ public class DevAppInfoController {
 	 * 
 	 * @param session
 	 * @param model
-	 * @param softwareName
-	 * @param APKName
-	 * @param interfaceLanguage
-	 * @param softwareSize
-	 * @param downloads
-	 * @param flatformId
-	 * @param categoryLevel1
-	 * @param categoryLevel2
-	 * @param categoryLevel3
 	 * @return
 	 */
 	@RequestMapping(value = "/doAdd")
