@@ -6,9 +6,9 @@ APP管理系统WEB端
 
 源码演示地址：[http://joysing.cc:8081/appsys](http://joysing.cc:8081/appsys)
 
- **- 运行环境** ：Apache+PHP+Mysql
+ **运行环境** ：Apache+PHP+Mysql
 
- **- 代码说明** 
+ **代码说明** 
 
 resources/database.properties 需要配置数据库连接信息（主机、用户名、密码），系统常量，debug模式等  
 appinfo.sql 位于data目录中，是数据库备份文件，需要提前导入到mysql中
