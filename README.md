@@ -1,7 +1,7 @@
 # AppInfoSystem
-松田校内学术项目
-APP管理系统WEB端
-由开发者后台+管理员后台两大模块组成
+松田校内学术项目  
+APP管理系统WEB端  
+由开发者后台+管理员后台两大模块组成  
 基于SSM + MySQL
 
 源码演示地址：[http://joysing.cc:8081/appsys](http://joysing.cc:8081/appsys)
