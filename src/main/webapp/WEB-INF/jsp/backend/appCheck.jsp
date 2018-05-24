@@ -163,9 +163,9 @@
 
 		<div class="form-group">
 			<div class="col-md-6 col-md-offset-3">
-				<button type="button" class="btn btn-round btn-success check"
+				<button type="button" class="btn btn-success check"
 					appInfoId="${appInfo.id }" status="2">审核通过</button>
-				<button type="button" class="btn btn-round btn-danger check"
+				<button type="button" class="btn btn-danger check"
 					appInfoId="${appInfo.id }" status="3">审核不通过</button>
 				<a href="appList" class="btn btn-primary">返回</a>
 			</div>

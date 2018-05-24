@@ -28,7 +28,7 @@
 					<div class="panel panel-default toggle" id="spr_0">
 						<!-- Start .panel -->
 						<div class="panel-heading">
-							<h3 class="panel-title">查找软件</h3>
+							<h3 class="panel-title">查找软件 </h3>
 							<div class="panel-controls panel-controls-hide" style="display: none;"><a href="#"
 																									  class="toggle panel-minimize"><i
 									class="im-minus"></i></a></div>
@@ -39,23 +39,11 @@
 								<input name="pageIndex" id="pageIndex" value="1" type="hidden">
 								<div class="form-group">
 									<%--<label class="col-lg-2 col-md-2 col-sm-12 control-label">软件名称</label>--%>
-									<div class="col-lg-2 col-md-2">
+									<div class="col-lg-3 col-md-3">
 										<input type="text" class="form-control" placeholder="软件名称"
 											   name="querySoftwareName" autofocus="autofocus">
 									</div>
-									<div class="col-lg-2 col-md-2">
-										<select name="queryStatus" class="form-control">
-											<c:if test="${!empty statusList }">
-												<option value="">APP状态</option>
-												<c:forEach items="${statusList }" var="status">
-													<option
-															<c:if test="${queryStatus==status.valueId }">selected="selected"</c:if>
-															value="${status.valueId }">${status.valueName }</option>
-												</c:forEach>
-											</c:if>
-										</select>
-									</div>
-									<div class="col-lg-2 col-md-2">
+									<div class="col-lg-3 col-md-3">
 										<select name="queryFlatformId" class="form-control">
 
 											<c:if test="${!empty flatFormList }">

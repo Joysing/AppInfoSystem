@@ -4,13 +4,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import cn.appsys.pojo.AppCategory;
 import cn.appsys.pojo.AppInfo;
 import cn.appsys.pojo.AppVersion;
@@ -99,7 +97,7 @@ public class backendController {
 
 		// 获取各种数据
 		try {
-			appInfos = appInfoService.getAppInfos(querySoftwareName, queryStatus, queryCategoryLevel1, queryCategoryLevel2,
+			appInfos = appInfoService.getAppInfos(querySoftwareName, queryStatus=1, queryCategoryLevel1, queryCategoryLevel2,
 					queryCategoryLevel3, queryFlatformId, null, from, pageSize);
 			categoryLevel1List = appCategoryService.getAppCategories(null);
 			statusList = dataDictionaryService.getDataDictionaries(Constants.APP_STATUS);
