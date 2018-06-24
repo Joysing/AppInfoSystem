@@ -2,6 +2,7 @@ package cn.appsys.pojo;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * app信息类
@@ -21,7 +22,7 @@ public class AppInfo {
 	/**
 	 * APK名称
 	 */
-	private String APKName;
+	private String apkName;
 	/**
 	 * 支持ROM
 	 */
@@ -140,13 +141,22 @@ public class AppInfo {
 	 */
 	private String versionNo;
 
+	private List<AppVersion> appVersionList;
+
+	public List<AppVersion> getAppVersionList() {
+		return appVersionList;
+	}
+	public void setAppVersionList(List<AppVersion> appVersionList) {
+		this.appVersionList = appVersionList;
+	}
+
 	public AppInfo() {
 		super();
 	}
 
 	@Override
 	public String toString() {
-		return "AppInfo [id=" + id + ", softwareName=" + softwareName + ", APKName=" + APKName + ", supportROM="
+		return "AppInfo [id=" + id + ", softwareName=" + softwareName + ", apkName=" + apkName + ", supportROM="
 				+ supportROM + ", interfaceLanguage=" + interfaceLanguage + ", updateDate=" + updateDate
 				+ ", softwareSize=" + softwareSize + ", devId=" + devId + ", appInfo=" + appInfo + ", status=" + status
 				+ ", onSaleDate=" + onSaleDate + ", offSaleDate=" + offSaleDate + ", categoryLevel3=" + categoryLevel3
@@ -279,12 +289,12 @@ public class AppInfo {
 		this.softwareName = softwareName;
 	}
 
-	public String getAPKName() {
-		return APKName;
+	public String getApkName() {
+		return apkName;
 	}
 
-	public void setAPKName(String aPKName) {
-		APKName = aPKName;
+	public void setApkName(String apkName) {
+		this.apkName = apkName;
 	}
 
 	public String getSupportROM() {

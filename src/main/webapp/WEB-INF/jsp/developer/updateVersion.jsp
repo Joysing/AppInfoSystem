@@ -99,7 +99,7 @@
 								<input type="hidden" name="id" value="${newAppVersion.id }">
 								<input type="hidden" name="appId" value="${appInfo.id }">
 								<input type="hidden" name="createdBy" value="${devUserSession.id }">
-								<input type="hidden" name="APKName" value="${appInfo.APKName }">
+								<input type="hidden" name="apkName" value="${appInfo.apkName }">
 								<div class="item form-group bad">
 									<label class="control-label col-md-3 col-sm-3 col-xs-12"
 										   for="versionNo">版本号<span class="required">*</span>

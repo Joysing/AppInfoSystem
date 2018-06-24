@@ -37,7 +37,7 @@ public interface AppInfoMapper {
                               @Param(value = "categoryLevel3") Integer queryCategoryLevel3,
                               @Param(value = "flatformId") Integer queryFlatformId, @Param(value = "devId") Integer devId,
                               @Param(value = "from") Integer from, @Param(value = "pageSize") Integer pageSize) throws Exception;
-
+	
 	/**
 	 * 获取APP信息总数
 	 * 
@@ -96,11 +96,11 @@ public interface AppInfoMapper {
 	 * 根据id或者apk名称获取APP信息
 	 * 
 	 * @param id
-	 * @param APKName
+	 * @param apkName
 	 * @return
 	 * @throws Exception
 	 */
-	AppInfo getAppInfo(@Param(value = "id") Integer id, @Param(value = "APKName") String APKName) throws Exception;
+	AppInfo getAppInfo(@Param(value = "id") Integer id, @Param(value = "apkName") String apkName) throws Exception;
 
 	/**
 	 * 删除APPlogo

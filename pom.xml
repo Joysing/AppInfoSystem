@@ -200,7 +200,12 @@
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.0.0</version>
+            <scope>compile</scope>
+        </dependency>
 
 
     </dependencies>

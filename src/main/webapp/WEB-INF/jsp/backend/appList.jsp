@@ -155,7 +155,7 @@
 											<c:forEach items="${ appInfos}" var="appInfo">
 												<tr class="gradeA even">
 													<td class=" sorting_1">${appInfo.softwareName}</td>
-													<td class=" ">${appInfo.APKName }</td>
+													<td class=" ">${appInfo.apkName }</td>
 													<td class=" ">${appInfo.softwareSize }</td>
 													<td class="center ">${appInfo.flatformName }</td>
 													<td class="center ">${appInfo.categoryLevel1Name }->

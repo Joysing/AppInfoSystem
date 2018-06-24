@@ -37,9 +37,9 @@
 							for="name">APK名称 <span class="required">*</span>
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input id="APKName" type="text"
-								class="form-control col-md-7 col-xs-12" name="APKName"
-								value="${appInfo.APKName}" readonly="readonly">
+							<input id="apkName" type="text"
+								class="form-control col-md-7 col-xs-12" name="apkName"
+								value="${appInfo.apkName}" readonly="readonly">
 						</div>
 					</div>
 

@@ -227,7 +227,7 @@ public class DevAppInfoController {
 				return "developer/appInfoAdd";
 			} else if (suffix.equalsIgnoreCase("jpg") || suffix.equalsIgnoreCase("jepg")
 					|| suffix.equalsIgnoreCase("pneg") || suffix.equalsIgnoreCase("png")) {// 判断格式是否正确
-				String fileName = appInfo.getAPKName() + "." + suffix;// 新文件名称
+				String fileName = appInfo.getApkName() + "." + suffix;// 新文件名称
 				File file = new File(path, fileName);
 
 				if (!file.exists()) {// 判断文件是否存在
@@ -296,27 +296,27 @@ public class DevAppInfoController {
 	/**
 	 * 判断apk名称是否存在JSON
 	 * 
-	 * @param APKName
+	 * @param apkName
 	 * @return
 	 */
 	@RequestMapping(value = "/apkEmpty.json")
 	@ResponseBody
-	public Object apkIsEmpty(@RequestParam(value = "APKName") String APKName) {
+	public Object apkIsEmpty(@RequestParam(value = "apkName") String apkName) {
 		Map<String, String> isEmpty = new HashMap<String, String>();
-		if (EmptyUtils.isEmpty(APKName)) {
-			isEmpty.put("APKName", "empty");
+		if (EmptyUtils.isEmpty(apkName)) {
+			isEmpty.put("apkName", "empty");
 		} else {
 			AppInfo appInfo = null;
 			try {
-				appInfo = appInfoService.getAppInfo(null, APKName);
+				appInfo = appInfoService.getAppInfo(null, apkName);
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new RuntimeException("加载信息失败!!");
 			}
 			if (EmptyUtils.isEmpty(appInfo)) {
-				isEmpty.put("APKName", "true");
+				isEmpty.put("apkName", "true");
 			} else {
-				isEmpty.put("APKName", "false");
+				isEmpty.put("apkName", "false");
 			}
 		}
 
@@ -409,7 +409,7 @@ public class DevAppInfoController {
 				return "developer/addVersion";
 			} else if (suffix.equals("apk")) {
 				try {
-					apkFileName =appInfoService.getAppInfo(appVersion.getAppId(),null).getAPKName()
+					apkFileName =appInfoService.getAppInfo(appVersion.getAppId(),null).getApkName()
 							+ "-" + appVersion.getVersionNo() + ".apk";// 文件名称
 				} catch (Exception e) {
 					e.printStackTrace();
