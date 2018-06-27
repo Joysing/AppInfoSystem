@@ -114,51 +114,6 @@ public class AndroidBackendController {
 	}
 
 	/**
-	 * 获取APP分类信息
-	 * 
-	 * @param parentId
-	 * @return
-	 */
-	@RequestMapping(value = "/category.json")
-	@ResponseBody
-	public List<AppCategory> getAppCategories(@RequestParam(value = "parentId") String parentId) {
-		List<AppCategory> appCategories = null;
-		if (EmptyUtils.isEmpty(parentId)) {
-			appCategories = appCategoryService.getAppCategories(null);
-		} else {
-			appCategories = appCategoryService.getAppCategories(Integer.parseInt(parentId));
-		}
-		return appCategories;
-	}
-
-	/**
-	 * 进入审核页面
-	 * 
-	 * @param appinfoid
-	 * @param versionid
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = "/appCheck")
-	public String appCheck(@RequestParam(value = "appinfoid") String appinfoid,
-			@RequestParam(value = "versionid") String versionid, Model model) {
-		AppInfo appInfo = null;
-		AppVersion appVersion = null;
-		try {
-			appInfo = appInfoService.getAppInfo(Integer.parseInt(appinfoid), null);
-			appVersion = appVersionService.getAppVersionById(Integer.parseInt(versionid));
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		model.addAttribute("appInfo", appInfo);
-		model.addAttribute("appVersion", appVersion);
-
-		return "backend/appCheck";
-	}
-
-	/**
 	 * 审核
 	 * 
 	 * @param status

@@ -62,6 +62,7 @@
 		a.onSaleDate,
 		a.logoPicPath,
 		a.versionId,
+		a.creationDate,
 		(select v.versionNo from app_version v where v.id=a.versionId ) as versionNo
 		from app_info a
 		<trim prefix="where" prefixOverrides="and | or">
