@@ -124,7 +124,7 @@
 		(select devName from dev_user where id = a.devId) as devName,
 		(select valueName from data_dictionary d where a.status=d.valueId AND
 		d.typeCode='APP_STATUS') as statusName,
-		(select valueName from data_dictionary d where a.status=d.valueId AND
+		(select valueName from data_dictionary d where a.flatformId=d.valueId AND
 		d.typeCode='APP_FLATFORM') as flatformName,
 		(select categoryName from app_category c where c.id=a.categoryLevel1) as categoryLevel1Name,
 		(select categoryName from app_category c where c.id=a.categoryLevel2) as categoryLevel2Name,

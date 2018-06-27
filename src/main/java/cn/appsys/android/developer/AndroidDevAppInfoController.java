@@ -127,6 +127,21 @@ public class AndroidDevAppInfoController {
 	}
 
 	/**
+	 * 查看APP信息
+	 */
+	@RequestMapping(value = "/appInfoView")
+    @ResponseBody
+	public Object appInfoView(@RequestParam(value = "id") String id) {
+		AppInfo appInfo = null;
+		try {
+			appInfo = appInfoService.getAppInfo(Integer.parseInt(id), null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("加载信息失败!!");
+		}
+		return appInfo;
+	}
+	/**
 	 * 获取APP分类信息
 	 * 
 	 * @param parentId

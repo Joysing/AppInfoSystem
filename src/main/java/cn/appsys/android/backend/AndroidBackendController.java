@@ -24,14 +24,6 @@ import java.util.List;
 public class AndroidBackendController {
 	@Resource
 	private AppInfoService appInfoService;
-	@Resource
-	private DataDictionaryService dataDictionaryService;
-	@Resource
-	private AppCategoryService appCategoryService;
-	@Resource
-	private AppVersionService appVersionService;
-	@Resource
-	private BackendUserService backendUserService;
 
 	@RequestMapping(value = "/appList")
 	@ResponseBody
@@ -46,11 +38,6 @@ public class AndroidBackendController {
 
 		// 定义各种变量
 		List<AppInfo> appInfos = null;// APP信息集合
-		List<DataDictionary> statusList = null;// 状态数据
-		List<DataDictionary> flatFormList = null;// 平台数据
-		List<AppCategory> categoryLevel1List = null;// 一级分类列表
-		List<AppCategory> categoryLevel2List;// 二级和三级分类列表通过异步ajax获取
-		List<AppCategory> categoryLevel3List;
 
 		// 转换数据类型
 		Integer queryStatus = null;
@@ -94,20 +81,8 @@ public class AndroidBackendController {
 		try {
 			appInfos = appInfoService.getAppInfos(querySoftwareName, queryStatus, queryCategoryLevel1, queryCategoryLevel2,
 					queryCategoryLevel3, queryFlatformId, null, from, pageSize);
-
-			categoryLevel1List = appCategoryService.getAppCategories(null);
-			statusList = dataDictionaryService.getDataDictionaries(Constants.APP_STATUS);
-			flatFormList = dataDictionaryService.getDataDictionaries(Constants.APP_FLATFORM);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-
-		// 二级三级类型回显
-		if (EmptyUtils.isNotEmpty(queryCategoryLevel2)) {
-			categoryLevel2List = appCategoryService.getAppCategories(queryCategoryLevel1);
-		}
-		if (EmptyUtils.isNotEmpty(queryCategoryLevel3)) {
-			categoryLevel3List = appCategoryService.getAppCategories(queryCategoryLevel2);
 		}
 
 		return appInfos;
