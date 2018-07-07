@@ -204,7 +204,7 @@ public class AndroidDevAppInfoController {
                     result.put("message","图片上传失败");
                     return result;
                 }
-                logoPicPath = request.getContextPath() + "/statics/uploadFiles/" + fileName;
+                logoPicPath = "/statics/uploadFiles/" + fileName;
                 logoLocPath = path + file.separator + fileName;
             } else {//上传失败
                 result.put("message","只能上传图片文件，后缀为jpg、jpeg、png、pneg");
@@ -290,7 +290,7 @@ public class AndroidDevAppInfoController {
                     result.put("message","图片上传失败");
                     return result;
                 }
-                logoPicPath = request.getContextPath() + "/statics/uploadFiles/" + fileName;
+                logoPicPath = "/statics/uploadFiles/" + fileName;
                 logoLocPath = path + file.separator + fileName;
             } else {//上传失败
                 result.put("message","只能上传图片文件，后缀为jpg、jpeg、png、pneg");
@@ -457,7 +457,7 @@ public class AndroidDevAppInfoController {
                     return result;
 				}
 
-				downloadLink = request.getContextPath()+"/statics/updateFiles/"+apkFileName;
+				downloadLink = "/statics/updateFiles/"+apkFileName;
 				apkLocPath = path+File.separator+apkFileName;
 
 			} else {
